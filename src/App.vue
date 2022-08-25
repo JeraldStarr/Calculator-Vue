@@ -1,7 +1,7 @@
 <template>
   <div class="calculator">
     <section class="calculator__display">
-        100
+        {{figure}}
     </section>
   <Keyboard/>
   </div>
@@ -13,6 +13,11 @@ export default {
   name: 'App',
   components: {
     Keyboard,
+  },
+  data() {
+    return {
+          figure: 100,
+    }
   }
 }
 </script>
