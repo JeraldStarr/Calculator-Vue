@@ -3,13 +3,20 @@
         <div class="calculator__number" 
             v-for="i in 10" 
             v-bind:key="i"
-        >{{i === 10 ? 0 : i++}}</div>
+            @click="showKeyNumber(i)"
+        >{{i === 10 ? 0 : i}}</div>
     </div>
 </template>
 
 <script>
 export default {
     name: "Numbers",
+    methods: {
+        showKeyNumber(number) {
+            number = number === 10 ? 0 : number;
+            alert(number)
+        },
+    }
 }
 </script>
 
