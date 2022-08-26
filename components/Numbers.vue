@@ -1,16 +1,9 @@
 <template>
     <div class="calculator__numbers">
-        <div class="calculator__number">1</div>
-        <div class="calculator__number">2</div>
-        <div class="calculator__number">3</div>
-        <div class="calculator__number">4</div>
-        <div class="calculator__number">5</div>
-        <div class="calculator__number">6</div>
-        <div class="calculator__number">7</div>
-        <div class="calculator__number">8</div>
-        <div class="calculator__number">9</div>
-        <div class="calculator__number">0</div>
-        <div class="calculator__number">,</div>
+        <div class="calculator__number" 
+            v-for="i in 10" 
+            v-bind:key="i"
+        >{{i === 10 ? 0 : i++}}</div>
     </div>
 </template>
 
