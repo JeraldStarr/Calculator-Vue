@@ -16,7 +16,12 @@ export default {
   },
   data() {
     return {
-          figure: 100,
+          figure: null,
+    }
+  },
+  methods: {
+    displayFigure(value) {
+      alert(value);
     }
   }
 }

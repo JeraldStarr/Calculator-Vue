@@ -3,7 +3,7 @@
         <div class="calculator__number" 
             v-for="i in 10" 
             v-bind:key="i"
-            @click="showKeyNumber(i)"
+            @click="emitFigure(i)"
         >{{i === 10 ? 0 : i}}</div>
     </div>
 </template>
@@ -12,9 +12,8 @@
 export default {
     name: "Numbers",
     methods: {
-        showKeyNumber(number) {
-            number = number === 10 ? 0 : number;
-            alert(number)
+        emitFigure(number) {
+            this.$emit('keyClicked', number === 10 ? 0 : number);
         },
     }
 }
