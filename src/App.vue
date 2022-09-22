@@ -1,18 +1,18 @@
 <template>
   <div class="calculator">
-    <section class="calculator__display">
-        {{figure}}
-    </section>
+  <Display :figure=figure />
   <Keyboard @numberClicked="figure => updateFigure(figure)"/>
   </div>
 </template>
 
 <script>
 import Keyboard from '../components/Keyboard.vue'
+import Display from '../components/Display.vue'
 export default {
   name: 'App',
   components: {
     Keyboard,
+    Display,
   },
   data() {
     return {
@@ -49,15 +49,6 @@ export default {
     width: 500px;
     border: 1px solid $border-color;
     border-radius: 2px;
-    &__display {
-      width: 100%;
-      height: 100px;
-      line-height: 100px;
-      text-align: right;
-      padding: 0 25px;
-      border-bottom: 1px solid $border-color;
-      font-size: 50px;
-    }
   }
 
 
