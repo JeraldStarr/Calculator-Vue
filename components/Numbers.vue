@@ -3,7 +3,7 @@
         <div class="calculator__number" 
             v-for="i in 10" 
             v-bind:key="i"
-            @click="emitFigure(i)"
+            @click="emitFigure(`${i}`)"
         >{{i === 10 ? 0 : i}}</div>
     </div>
 </template>
@@ -13,7 +13,7 @@ export default {
     name: "Numbers",
     methods: {
         emitFigure(number) {
-            this.$emit('keyClicked', number === 10 ? 0 : number);
+            this.$emit('numberClicked', number === '10' ? '0' : number);
         },
     }
 }
@@ -35,6 +35,7 @@ export default {
         border: 1px solid $border-color;
         border-radius: 2px;
         font-size: 30px;
+        cursor: pointer;
         }
     }
 </style>

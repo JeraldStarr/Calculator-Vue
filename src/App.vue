@@ -3,7 +3,7 @@
     <section class="calculator__display">
         {{figure}}
     </section>
-  <Keyboard/>
+  <Keyboard @numberClicked="figure => updateFigure(figure)"/>
   </div>
 </template>
 
@@ -16,12 +16,12 @@ export default {
   },
   data() {
     return {
-          figure: null,
+          figure: '',
     }
   },
   methods: {
-    displayFigure(value) {
-      alert(value);
+    updateFigure(value) {
+      this.figure += value;
     }
   }
 }
@@ -56,7 +56,7 @@ export default {
       text-align: right;
       padding: 0 25px;
       border-bottom: 1px solid $border-color;
-      font-size: 100px;
+      font-size: 50px;
     }
   }
 
