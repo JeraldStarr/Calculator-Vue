@@ -1,7 +1,7 @@
 <template>
   <div class="calculator">
   <Display :figure=figure />
-  <Keyboard @numberClicked="figure => updateFigure(figure)"/>
+  <Keyboard @numberClicked="figure => handleFigure(figure)"/>
   </div>
 </template>
 
@@ -20,6 +20,9 @@ export default {
     }
   },
   methods: {
+    handleFigure(value) {
+      this.updateFigure(value)
+    },
     updateFigure(value) {
       this.figure += value;
     }
