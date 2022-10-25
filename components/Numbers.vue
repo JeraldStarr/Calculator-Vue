@@ -1,10 +1,12 @@
 <template>
     <div class="calculator__numbers">
         <div class="calculator__number" 
-            v-for="i in 10" 
+            v-for="i in 11" 
             v-bind:key="i"
             @click="emitFigure(`${i}`)"
-        >{{i === 10 ? 0 : i}}</div>
+        >
+        {{displayKeyLabel(i, "display")}}
+        </div>
     </div>
 </template>
 
@@ -13,7 +15,15 @@ export default {
     name: "Numbers",
     methods: {
         emitFigure(number) {
-            this.$emit('numberClicked', number === '10' ? '0' : number);
+            this.$emit('numberClicked', this.displayKeyLabel(number, "emit"));
+        },
+        displayKeyLabel(i, destiny) {
+            i = parseInt(i);
+            if (i === 10) {
+                return 0;
+            } else if (i === 11) {
+                return destiny === "emit" ? "" : '=';
+            } else return i;
         },
     }
 }
