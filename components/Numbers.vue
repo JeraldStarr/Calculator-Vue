@@ -1,11 +1,16 @@
 <template>
     <div class="calculator__numbers">
         <div class="calculator__number" 
-            v-for="i in 11" 
+            v-for="i in 10" 
             v-bind:key="i"
             @click="emitFigure(`${i}`)"
         >
-        {{displayKeyLabel(i, "display")}}
+        {{displayKeyLabel(i)}}
+        </div>
+        <div class="calculator__number calculator__equal"
+            @click="sum"
+        >
+            {{"="}}
         </div>
     </div>
 </template>
@@ -15,16 +20,17 @@ export default {
     name: "Numbers",
     methods: {
         emitFigure(number) {
-            this.$emit('numberClicked', this.displayKeyLabel(number, "emit"));
+            this.$emit('numberClicked', this.displayKeyLabel(number));
         },
-        displayKeyLabel(i, destiny) {
+        displayKeyLabel(i) {
             i = parseInt(i);
             if (i === 10) {
                 return 0;
-            } else if (i === 11) {
-                return destiny === "emit" ? "" : '=';
             } else return i;
         },
+        sum() {
+            this.$emit("sumOperation");
+        }
     }
 }
 </script>

@@ -1,6 +1,9 @@
 <template>
     <section class="calculator__keyboard" >
-      <Numbers @numberClicked="figure => emitFigure(figure)"/>
+      <Numbers 
+        @numberClicked="figure => emitFigure(figure)"
+        @sumOperation="() => sum()"
+      />
       <Operations :figure=figure @dialedFactor="factor=>emitDialedFactor(factor)"/>
     </section>
 </template>
@@ -23,6 +26,9 @@ export default {
     },
     emitDialedFactor(factor) {
       this.$emit("dialedFactor", factor);
+    },
+    sum() {
+      this.$emit("sumOperation");
     }
    },
 }
