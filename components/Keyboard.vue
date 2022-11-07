@@ -1,7 +1,7 @@
 <template>
     <section class="calculator__keyboard" >
       <Numbers @numberClicked="figure => emitFigure(figure)"/>
-      <Operations/>
+      <Operations :figure=figure @dialedFactor="factor=>emitDialedFactor(factor)"/>
     </section>
 </template>
 
@@ -14,10 +14,16 @@ export default {
     Numbers,
     Operations
    },
+   props: {
+    figure: String,
+   },
    methods: {
     emitFigure(number) {
       this.$emit('numberClicked', number);
     },
+    emitDialedFactor(factor) {
+      this.$emit("dialedFactor", factor);
+    }
    },
 }
 </script>

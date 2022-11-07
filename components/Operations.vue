@@ -1,6 +1,9 @@
 <template>
     <div class="calculator__operations">
-        <div class="calculator__addition calculator__operation" @click=add>+</div>
+        <div 
+            class="calculator__addition calculator__operation" 
+            @click=add
+        >+</div>
         <div class="calculator__substraction calculator__operation" @click=substraction>-</div>
         <div class="calculator__division calculator__operation" @click=division>/</div>
         <div class="calculator__multiplication calculator__operation" @click=multiplication>x</div>
@@ -11,9 +14,12 @@
 
 export default {
     name: 'Operations',
+    props: {
+        figure: String,
+    },
     methods: {
         add() {
-            console.log("addition");
+            this.$emit("dialedFactor", parseInt(this.figure));
         },
         division() {
             console.log("division");
@@ -23,7 +29,7 @@ export default {
         },
         multiplication() {
             console.log("multiplication");
-        }
+        },
     }
 }
 </script>

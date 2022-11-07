@@ -1,7 +1,11 @@
 <template>
   <div class="calculator">
   <Display :figure=figure />
-  <Keyboard @numberClicked="figure => handleFigure(figure)"/>
+  <Keyboard
+    :figure=figure
+    @numberClicked="figure => handleFigure(figure)"
+    @dialedFactor="factor => sum(factor)"
+  />
   </div>
 </template>
 
@@ -25,6 +29,9 @@ export default {
     },
     updateFigure(value) {
       this.figure += value;
+    },
+    sum(factor) {
+      console.log(factor);
     }
   }
 }
