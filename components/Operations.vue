@@ -1,9 +1,9 @@
 <template>
     <div class="calculator__operations">
-        <div class="calculator__addition calculator__operation">+</div>
-        <div class="calculator__substraction calculator__operation">-</div>
-        <div class="calculator__divistion calculator__operation">/</div>
-        <div class="calculator__multiplication calculator__operation">x</div>
+        <div class="calculator__addition calculator__operation" @click=add>+</div>
+        <div class="calculator__substraction calculator__operation" @click=substraction>-</div>
+        <div class="calculator__division calculator__operation" @click=division>/</div>
+        <div class="calculator__multiplication calculator__operation" @click=multiplication>x</div>
     </div>
 </template>
 
@@ -11,6 +11,20 @@
 
 export default {
     name: 'Operations',
+    methods: {
+        add() {
+            console.log("addition");
+        },
+        division() {
+            console.log("division");
+        },
+        substraction() {
+            console.log("substraction");
+        },
+        multiplication() {
+            console.log("multiplication");
+        }
+    }
 }
 </script>
 
