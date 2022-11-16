@@ -4,7 +4,7 @@
             class="calculator__addition calculator__operation" 
             @click=add
         >+</div>
-        <div class="calculator__substraction calculator__operation" @click=substraction>-</div>
+        <div class="calculator__substraction calculator__operation" @click=subtraction>-</div>
         <div class="calculator__division calculator__operation" @click=division>/</div>
         <div class="calculator__multiplication calculator__operation" @click=multiplication>x</div>
     </div>
@@ -19,13 +19,13 @@ export default {
     },
     methods: {
         add() {
-            this.$emit("dialedFactor", parseInt(this.figure));
+            this.$emit("addition", parseInt(this.figure));
         },
         division() {
             console.log("division");
         },
-        substraction() {
-            console.log("substraction");
+        subtraction() {
+            this.$emit("subtraction", parseInt(this.figure));
         },
         multiplication() {
             console.log("multiplication");

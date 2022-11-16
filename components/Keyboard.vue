@@ -4,7 +4,11 @@
         @numberClicked="figure => emitFigure(figure)"
         @sumOperation="() => sum()"
       />
-      <Operations :figure=figure @dialedFactor="factor=>emitDialedFactor(factor)"/>
+      <Operations 
+        :figure=figure 
+        @addition="factor=>emitAddition(factor)"
+        @subtraction="factor=>emitSubtraction(factor)"
+      />
     </section>
 </template>
 
@@ -24,8 +28,11 @@ export default {
     emitFigure(number) {
       this.$emit('numberClicked', number);
     },
-    emitDialedFactor(factor) {
-      this.$emit("dialedFactor", factor);
+    emitAddition(factor) {
+      this.$emit("addition", factor);
+    },
+    emitSubtraction(factor) {
+      this.$emit("subtraction", factor);
     },
     sum() {
       this.$emit("sumOperation");

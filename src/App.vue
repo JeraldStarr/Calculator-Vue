@@ -4,7 +4,8 @@
   <Keyboard
     :figure=figure
     @numberClicked="figure => handleFigure(figure)"
-    @dialedFactor="factor => add(factor)"
+    @addition="factor => add(factor)"
+    @subtraction="factor => subtract(factor)"
     @sumOperation="() => sum()"
 
   />
@@ -25,6 +26,7 @@ export default {
           figure: '',
           factor: '',
           displayReset: false,
+          operationType: null,
     }
   },
   methods: {
@@ -41,9 +43,24 @@ export default {
     add(factor) {
       this.factor = factor;
       this.displayReset = true;
+      this.operationType = "addition";
+    },
+    subtract(factor) {
+      this.factor = factor;
+      this.displayReset = true;
+      this.operationType = "subtraction";
     },
     sum() {
-      this.figure = (parseInt(this.figure) + parseInt(this.factor)).toString();
+      switch(this.operationType) {
+        case "addition":
+        this.figure = (parseInt(this.figure) + parseInt(this.factor)).toString();
+        console.log(typeof this.figure);
+        break;
+        case "subtraction":
+        this.figure = (parseInt(this.factor)- parseInt(this.figure)).toString();
+        break;
+      }
+      
       this.restorDisplayReset();
     },
     restorDisplayReset() {
