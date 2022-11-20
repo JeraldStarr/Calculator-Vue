@@ -6,6 +6,8 @@
     @numberClicked="figure => handleFigure(figure)"
     @addition="factor => add(factor)"
     @subtraction="factor => subtract(factor)"
+    @division="factor => divide(factor)"
+    @multiplication="factor => multiple(factor)"
     @sumOperation="() => sum()"
 
   />
@@ -50,6 +52,16 @@ export default {
       this.displayReset = true;
       this.operationType = "subtraction";
     },
+    divide(factor) {
+      this.factor = factor;
+      this.displayReset = true;
+      this.operationType = "division";
+    },
+    multiple(factor) {
+      this.factor = factor;
+      this.displayReset = true;
+      this.operationType = "multiplication";
+    },
     sum() {
       switch(this.operationType) {
         case "addition":
@@ -59,6 +71,14 @@ export default {
         case "subtraction":
         this.figure = (parseInt(this.factor)- parseInt(this.figure)).toString();
         break;
+        case "division":
+        this.figure = (parseInt(this.factor) / parseInt(this.figure)).toString();
+        break;
+        case "multiplication":
+          console.log("mnożenie")
+        this.figure = (parseInt(this.factor) *  parseInt(this.figure)).toString();
+        break;
+
       }
       
       this.restorDisplayReset();

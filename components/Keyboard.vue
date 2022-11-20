@@ -8,6 +8,9 @@
         :figure=figure 
         @addition="factor=>emitAddition(factor)"
         @subtraction="factor=>emitSubtraction(factor)"
+        @division="factor=>emitDivision(factor)"
+        @multiplication="factor=>emitMultiplication(factor)"
+
       />
     </section>
 </template>
@@ -33,6 +36,12 @@ export default {
     },
     emitSubtraction(factor) {
       this.$emit("subtraction", factor);
+    },
+    emitDivision(factor) {
+      this.$emit("division", factor);
+    },
+    emitMultiplication(factor) {
+      this.$emit("multiplication", factor);
     },
     sum() {
       this.$emit("sumOperation");

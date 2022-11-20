@@ -22,13 +22,13 @@ export default {
             this.$emit("addition", parseInt(this.figure));
         },
         division() {
-            console.log("division");
+            this.$emit("division", parseInt(this.figure));
         },
         subtraction() {
             this.$emit("subtraction", parseInt(this.figure));
         },
         multiplication() {
-            console.log("multiplication");
+            this.$emit("multiplication", parseInt(this.figure));
         },
     }
 }
