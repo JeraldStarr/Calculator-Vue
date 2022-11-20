@@ -66,7 +66,6 @@ export default {
       switch(this.operationType) {
         case "addition":
         this.figure = (parseInt(this.figure) + parseInt(this.factor)).toString();
-        console.log(typeof this.figure);
         break;
         case "subtraction":
         this.figure = (parseInt(this.factor)- parseInt(this.figure)).toString();
@@ -75,7 +74,6 @@ export default {
         this.figure = (parseInt(this.factor) / parseInt(this.figure)).toString();
         break;
         case "multiplication":
-          console.log("mnożenie")
         this.figure = (parseInt(this.factor) *  parseInt(this.figure)).toString();
         break;
 
