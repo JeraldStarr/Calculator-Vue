@@ -68,7 +68,7 @@ export default {
         this.figure = (parseInt(this.figure) + parseInt(this.factor)).toString();
         break;
         case "subtraction":
-        this.figure = (parseInt(this.factor)- parseInt(this.figure)).toString();
+        this.figure = (parseInt(this.factor) - parseInt(this.figure)).toString();
         break;
         case "division":
         this.figure = (parseInt(this.factor) / parseInt(this.figure)).toString();
@@ -84,6 +84,18 @@ export default {
     restorDisplayReset() {
       this.displayReset = !this.displayReset;
     }
+  },
+  created() {
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "0" || parseInt(e.key)) {
+        this.handleFigure(e.key)
+      } else {
+        switch(e.key) {
+          case "+":
+            this.add(this.figure);
+        }
+      }
+    })
   }
 }
 </script>
