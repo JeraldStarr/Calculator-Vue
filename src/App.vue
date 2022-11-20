@@ -93,6 +93,16 @@ export default {
         switch(e.key) {
           case "+":
             this.add(this.figure);
+            break;
+          case "-":
+            this.subtract(this.figure);
+            break;
+          case "*":
+            this.multiple(this.figure);
+            break;
+          case "/":
+            this.divide(this.figure);
+            break;
         }
       }
     })
