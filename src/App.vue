@@ -103,6 +103,8 @@ export default {
           case "/":
             this.divide(this.figure);
             break;
+          case "Enter":
+            this.sum();
         }
       }
     })
