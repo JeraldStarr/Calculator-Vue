@@ -1,4 +1,7 @@
-# calculator-vue
+# Simple Calculator
+Simple calculator which handles simple operations: addition, subtraction, division and multiplication
+
+![Application's appeareance](public/doc/calc.png)
 
 ## Project setup
 ```
@@ -24,7 +27,16 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-### Supported node version
+## Supported node version
 ```
 14.19.3
 ```
+
+## Controllers
+mouse, keyboard
+
+## Used technologies
+Vue, CSS (SCSS)
+
+## Author
+Lukasz Sitnik
