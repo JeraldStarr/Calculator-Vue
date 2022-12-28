@@ -12,6 +12,11 @@
         >
             {{"="}}
         </div>
+        <div class="calculator__number calculator__cancel"
+            @click="cancel"
+        >
+            {{"C"}}
+        </div>
     </div>
 </template>
 
@@ -30,6 +35,9 @@ export default {
         },
         sum() {
             this.$emit("sumOperation");
+        },
+        cancel() {
+            this.$emit("cancelOperation")
         }
     }
 }

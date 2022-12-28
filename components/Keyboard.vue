@@ -3,6 +3,7 @@
       <Numbers 
         @numberClicked="figure => emitFigure(figure)"
         @sumOperation="() => sum()"
+        @cancelOperation="() => cancel()"
       />
       <Operations 
         :figure=figure 
@@ -45,6 +46,9 @@ export default {
     },
     sum() {
       this.$emit("sumOperation");
+    },
+    cancel() {
+      this.$emit("cancelOperation");
     }
    },
 }
