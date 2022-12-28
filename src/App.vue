@@ -9,6 +9,7 @@
     @division="factor => divide(factor)"
     @multiplication="factor => multiple(factor)"
     @sumOperation="() => sum()"
+    @cancelOperation="() => cancel()"
 
   />
   </div>
@@ -25,7 +26,7 @@ export default {
   },
   data() {
     return {
-          figure: '',
+          figure: '0',
           factor: '',
           displayReset: false,
           operationType: null,
@@ -36,6 +37,9 @@ export default {
       this.updateFigure(value)
     },
     updateFigure(value) {
+      if (this.figure === "0") {
+        this.figure = "";
+      }
       if (this.displayReset) {
         this.figure = '';
         this.restorDisplayReset();
@@ -83,6 +87,9 @@ export default {
     },
     restorDisplayReset() {
       this.displayReset = !this.displayReset;
+    },
+    cancel() {
+      this.figure = 0
     }
   },
   created() {
